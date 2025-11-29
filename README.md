@@ -57,7 +57,7 @@ npm start         # Modo producción
 
 ## Uso con Docker
 
-Enlace a imagen de docker: [Ir](https://hub.docker.com/repository/docker/aerith626/adopt/general)
+Enlace a imagen de docker: [Ir a Docker Hub](https://hub.docker.com/repository/docker/aerith626/adopt/general)
 
 ### Obtener imagen
 
@@ -71,7 +71,7 @@ docker pull aerith626/adopt:1.0.0
 docker run -p 8080:8080 --env-file .env adopt
 ```
 
-### Constuir imagen
+### Construir imagen
 
 ```
 docker build -t usuario/nombre-del-proyecto:1.0.0
