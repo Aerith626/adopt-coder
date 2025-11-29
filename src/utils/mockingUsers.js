@@ -1,5 +1,5 @@
 import { faker } from '@faker-js/faker';
-import bcrypt from 'bcrypt';
+import bcrypt from 'bcryptjs';
 
 export const generateMockUsers = (num = 50) => {
 	const users = [];

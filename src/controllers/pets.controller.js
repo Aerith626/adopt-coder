@@ -8,9 +8,9 @@ const getAllPets = async(req,res)=>{
 }
 
 const createPet = async(req,res)=> {
-    const {name,specie,birthDate} = req.body;
+    const {name,specie,birthDate, adopted} = req.body;
     if(!name||!specie||!birthDate) return res.status(400).send({status:"error",error:"Incomplete values"})
-    const pet = PetDTO.getPetInputFrom({name,specie,birthDate});
+    const pet = PetDTO.getPetInputFrom({name,specie,birthDate, adopted});
     const result = await petsService.create(pet);
     res.send({status:"success",payload:result})
 }

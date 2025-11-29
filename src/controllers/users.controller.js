@@ -21,6 +21,16 @@ const updateUser =async(req,res)=>{
     res.send({status:"success",message:"User updated"})
 }
 
+const createUser = async (req, res) => {
+	const { first_name, last_name, email, password } = req.body;
+	if (!first_name || !last_name || !email || !password)
+		return res.status(400).send({ status: "error", error: "Incomplete values" });
+
+	const newUser = await usersService.create({ first_name, last_name, email, password });
+	res.send({ status: "success", payload: newUser });
+};
+
+
 const deleteUser = async(req,res) =>{
     const userId = req.params.uid;
     const result = await usersService.getUserById(userId);
@@ -31,5 +41,6 @@ export default {
     deleteUser,
     getAllUsers,
     getUser,
+	createUser,
     updateUser
 }
