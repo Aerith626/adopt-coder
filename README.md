@@ -24,6 +24,7 @@ Incluye generación de datos mock (usuarios y mascotas), autenticación JWT y ma
 
 ## Estructura simplificada del proyecto
 
+```
 /src
  /controllers
  /dao
@@ -42,6 +43,7 @@ swagger.js
 package.json
 package-lock.json
 README.md
+```
 
 ---
 
@@ -55,16 +57,25 @@ npm start         # Modo producción
 
 ## Uso con Docker
 
-### 1. Construir imagen
+Enlace a imagen de docker: [Ir](https://hub.docker.com/repository/docker/aerith626/adopt/general)
+
+### 1. Obtener imagen
 
 ```
-docker build -t adoption .
+docker pull aerith626/adopt:1.0.0
 ```
 
 ### 2. Ejecutar contenedor
 
 ```
-docker run -p 8080:8080 --env-file .env nombre-de-tu-app
+docker run -p 8080:8080 --env-file .env adopt
+```
+
+## Variables de entorno necesarias
+
+```
+URI_MONGODB=mongodb+srv://...
+PORT=8080
 ```
 
 ## Documentación (Swagger)
@@ -72,10 +83,10 @@ docker run -p 8080:8080 --env-file .env nombre-de-tu-app
 Para ver la documentación de la API, se debe entrar al siguiente enlace luego de iniciar la app:
 
 ```
-http://localhost:8080/api/docs
+http://localhost:8080/docs
 ```
 
-## Endpoints
+## Endpoints destacados
 ### Auth
 
 - POST /api/sessions/register
@@ -94,16 +105,6 @@ http://localhost:8080/api/docs
 - GET /api/adoptions/
 - GET /api/adoptions/:aid
 - POST /api/adoptions/:uid/:pid
-
-## Variables de entorno
-
-Crea un archivo .env:
-
-```
-MONGO_URL=mongodb+srv://...
-PORT=8080
-JWT_SECRET=tokenSecretJWT
-```
 
 ## .dockerignore recomendado
 
